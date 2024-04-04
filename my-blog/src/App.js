@@ -17,9 +17,8 @@ function App() {
         <Route path={"/"} element={<MainPage />} />
         <Route path={"tech"} element={<TechPage />}>
           <Route path={"javascript"} element={<JavascriptPage />} />
-          <Route path={"react"} element={<ReactPage />}>
-            <Route path={":docId"} element={<ReactDocPage />} />
-          </Route>
+          <Route path={"react"} element={<ReactPage />} />
+          <Route path={"react/:docId"} element={<ReactDocPage />} />
         </Route>
         <Route path={"blog"} element={<BlogPage />} />
       </Routes>

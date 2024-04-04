@@ -40,7 +40,6 @@ function ReactPage() {
           {doc.title}
         </Link>
       ))}
-      <Outlet />
     </div>
   );
 }
