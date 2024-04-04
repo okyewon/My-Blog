@@ -7,15 +7,15 @@ function ReactPage() {
   // const [docs, setDocs] = useState([]);
   const [number, setNumber] = useState(0);
 
-  async function fetcher() {
-    const result = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
+  async function fetcher(url) {
+    const result = await axios.get(url);
 
     console.log(result.data);
     return result.data;
   }
-  const { data: docs, error } = useSWR("posts", fetcher);
+  const { data: docs, error } = useSWR("posts", () =>
+    fetcher("https://jsonplaceholder.typicode.com/posts")
+  );
 
   // useEffect(() => {
   //   async function fetchData() {
