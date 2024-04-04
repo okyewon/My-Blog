@@ -12,11 +12,11 @@ function App() {
   // tech url : tech page component
   // blog url : blog page component
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <BrowserRouter>
-      <h1 onClick={() => navigate("/")}>logo</h1>
+      {/* <h1 onClick={() => navigate("/")}>logo</h1> */}
       <Routes>
         <Route path={"/"} element={<MainPage />} />
         <Route path={"tech"} element={<TechPage />}>

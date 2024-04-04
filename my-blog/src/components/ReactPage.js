@@ -1,34 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 function ReactPage() {
-  const docs = [
-    {
-      id: 1,
-      title: "React start",
-      date: "04/03/2024",
-    },
-    {
-      id: 2,
-      title: "Without CRA",
-      date: "12/03/2024",
-    },
-    {
-      id: 3,
-      title: "useMemo & useCallback",
-      date: "21/03/2024",
-    },
-    {
-      id: 4,
-      title: "React with Prettier",
-      date: "31/03/2024",
-    },
-    {
-      id: 5,
-      title: "React setState(), useEffect()",
-      date: "01/04/2024",
-    },
-  ];
+  const [docs, setDocs] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+      const result = await res.json();
+      return result;
+    }
+
+    fetchData().then((res) => {
+      setDocs(res);
+    });
+  }, []);
+
   return (
     <div>
       {docs.map((doc) => (
