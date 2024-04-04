@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import axios from "axios";
 
 function ReactPage() {
   const [docs, setDocs] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-      const result = await res.json();
-      return result;
+      const result = await axios.get(
+        "https://jsonplaceholder.typicode.com/posts"
+      );
+      // const result = await res.json();
+      console.log(result);
+      return result.data;
     }
 
     fetchData().then((res) => {
